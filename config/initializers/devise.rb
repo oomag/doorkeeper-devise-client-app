@@ -150,7 +150,7 @@ Devise.setup do |config|
   config.timeout_in = 1.minutes if Rails.env.development?
 
   # If true, expires auth token on session timeout.
-  config.expire_auth_token_on_timeout = true
+  #config.expire_auth_token_on_timeout = true
 
   # ==> Configuration for :lockable
   # Defines which strategy will be used to lock an account.
@@ -231,7 +231,7 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   require 'omniauth/strategies/doorkeeper'
-  config.omniauth :doorkeeper, ENV['DOORKEEPER_APP_ID'], ENV['DOORKEEPER_APP_SECRET'], client_options: {site: ENV['DOORKEEPER_APP_URL'] }, scope: 'public write'
+  config.omniauth :doorkeeper, ENV['DOORKEEPER_APP_ID'], ENV['DOORKEEPER_APP_SECRET'], client_options: {site: ENV['DOORKEEPER_APP_URL'] }, scope: ''
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

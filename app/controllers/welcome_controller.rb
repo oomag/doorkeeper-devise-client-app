@@ -3,7 +3,6 @@ class WelcomeController < ApplicationController
 
   def index
     @me = get_me
-    @microposts = get_microposts
   end
 
   def post

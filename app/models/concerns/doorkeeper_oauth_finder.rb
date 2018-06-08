@@ -11,14 +11,15 @@ module DoorkeeperOauthFinder
         user.email = oauth_data.info.email
         user.save! if user.changed?
       else
-        user = self.create!({
+        user_data = {
           id: id, # use same id
           name: oauth_data.info.name,
           provider: oauth_data.provider,
           uid: uid,
           email: oauth_data.info.email,
           #password: Devise.friendly_token[0,20]
-        })
+        }
+        user = self.create!(user_data)
       end
       user
     end

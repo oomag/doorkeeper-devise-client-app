@@ -6,6 +6,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def doorkeeper
     # You need to implement the method below in your model (e.g. app/models/user.rb)
     oauth_data = request.env['omniauth.auth']
+    puts("oauth_data")
+    puts(oauth_data.to_json)
     @user = User.find_or_create_for_doorkeeper_oauth(oauth_data)
     session[:doorkeeper_token] = oauth_data['credentials']['token']
 
